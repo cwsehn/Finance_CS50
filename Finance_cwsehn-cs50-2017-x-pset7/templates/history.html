@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Transaction</th>
+                    <th>Shares</th>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for tup in buy_list  %}
+                
+                <tr>
+                    <td> {{ tup[3] }} </td>
+                    {% if tup[4] %}
+                    <td>Purchased</td>
+                    {% else %}
+                    <td>Sold</td>
+                    {% endif %}
+                    <td> {{ tup[1] }} </td>
+                    <td>{{ tup[0] }}</td>
+                    <td>{{ tup[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
+{% endblock %}

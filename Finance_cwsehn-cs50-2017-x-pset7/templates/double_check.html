@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Double_Check
+{% endblock %}
+
+{% block main %}
+    
+    <p style="font-size:120%; ">
+        <b>Purchase {{shares}} shares of {{name}} ({{symbol}}) at {{price}}? </b></br>
+        Cash before purchase: {{cash}}</br>
+        Total Cost: {{cost}}
+    </p>
+
+    <form action="{{ url_for('double_check') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <input type="radio" name="confirm" value="confirm"> Confirm<br>
+                <p><span style="align-center">Leave Radio Button Unchecked to Cancel Order</span></p>
+            </div>
+            <div class="form-group">    
+                <input type="submit" value="confirm/cancel" />
+            </div>
+        </fieldset>
+    </form>
+        
+{% endblock %}

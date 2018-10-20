@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for tup in stock_list  %}
+                <tr>
+                    <td> {{ tup[0] }} </td>
+                    <td>{{ tup[4] }}</td>
+                    <td> {{ tup[1] }} </td>
+                    <td>{{ tup[5] }}</td>
+                    <td>{{ tup[6] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+         <p style="text-align:center;"><b>Stock Value: {{ value }}</b></p>
+         <p style="text-align:center; text-decoration:underline;"><b>Available Cash: {{ cash }}</b></p>
+         <p style="text-align:center; font-size: 120%"><b>Account Value: {{ Tot_Val }}</b></p>
+
+    </div>
+{% endblock %}
